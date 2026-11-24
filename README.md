@@ -12,7 +12,7 @@ Page d'index de mes projets perso : petits outils web gratuits et sans compte.
 
 ## Fichiers
 
-- `index.html` : la page, HTML et CSS sans dépendance ni build (polices Google Fonts : Bricolage Grotesque, JetBrains Mono).
+- `index.html` : la page, HTML et CSS sans dépendance ni build (polices Google Fonts : Syne, comme le logo, et JetBrains Mono).
 - `logo.svg` : le logo « gh. » (Syne 800 vectorisé, point vert acide), aussi utilisé comme favicon.
 - `apple-touch-icon.png` : icône 180 px pour l'écran d'accueil iOS.
 
