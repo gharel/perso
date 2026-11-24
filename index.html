@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --paper: #F2F0EA;
@@ -31,7 +31,7 @@
   --grain-opacity: .10;
   --on-fg-accent: var(--lime);
   --dot-stroke: transparent;
-  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --display: "Syne", "Helvetica Neue", Arial, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
   --gutter: clamp(16px, 4vw, 56px);
   --ease: cubic-bezier(.2, .8, .2, 1);
@@ -65,7 +65,6 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--display);
-  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -109,16 +108,19 @@ a { color: inherit; text-decoration: none; }
 .hero { padding-block: clamp(40px, 9vw, 120px) clamp(32px, 6vw, 72px); }
 .title {
   margin: 0;
-  font-size: clamp(76px, 17vw, 232px);
-  line-height: .8;
-  letter-spacing: -.055em;
-  font-weight: 700;
-  font-variation-settings: "opsz" 96;
+  font-size: clamp(54px, 13.5vw, 184px);
+  line-height: .86;
+  letter-spacing: -.045em;
+  font-weight: 800;
 }
 .title .dot {
-  color: var(--lime);
-  -webkit-text-stroke: max(2px, .012em) var(--fg);
-  paint-order: stroke fill;
+  display: inline-block;
+  width: max(.17em, 12px);
+  height: max(.17em, 12px);
+  margin-left: .03em;
+  border-radius: 50%;
+  background: var(--lime);
+  border: max(1.5px, .012em) solid var(--fg);
 }
 .title sup {
   font-family: var(--mono);
@@ -138,9 +140,10 @@ a { color: inherit; text-decoration: none; }
 }
 .lead p {
   margin: 0;
-  font-size: clamp(19px, 2.1vw, 28px);
-  line-height: 1.3;
-  letter-spacing: -.01em;
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1.35;
+  letter-spacing: -.015em;
+  font-weight: 500;
   max-width: 34ch;
 }
 .lead .mono { color: var(--sub); padding-top: .4em; }
@@ -178,10 +181,10 @@ a { color: inherit; text-decoration: none; }
 .body { grid-area: body; min-width: 0; }
 .name {
   display: block;
-  font-size: clamp(40px, 6.4vw, 88px);
-  line-height: .92;
-  letter-spacing: -.045em;
-  font-weight: 700;
+  font-size: clamp(26px, 5vw, 68px);
+  line-height: .95;
+  letter-spacing: -.04em;
+  font-weight: 800;
   transition: transform .5s var(--ease);
 }
 .row:hover .name { transform: translateX(10px); }
@@ -267,7 +270,7 @@ g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
 
   <main>
     <section class="hero">
-      <h1 class="title reveal" style="--i:1">Projets<br>perso<span class="dot">.</span><sup>(03)</sup></h1>
+      <h1 class="title reveal" style="--i:1">Projets<br>perso<span class="dot" aria-hidden="true"></span><sup>(03)</sup></h1>
       <div class="lead reveal" style="--i:2">
         <span class="mono">Fait main · 2026</span>
         <p>Petits outils web pour le quotidien&nbsp;: entretenir sa piscine, progresser en anglais, estimer son alcoolémie. Gratuits, sans compte, ils tournent dans le navigateur.</p>
@@ -308,7 +311,7 @@ g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
           </svg>
           <span class="body">
             <span class="name">Tea Time</span>
-            <span class="desc">Apprendre l’anglais quand on est francophone&nbsp;: test de niveau, exercices, mini-jeux et Emma, prof vocale IA 100&nbsp;% locale.</span>
+            <span class="desc">Apprendre l’anglais quand on est francophone&nbsp;: test de niveau, exercices, mini-jeux et Emma, prof vocale IA entièrement locale.</span>
           </span>
           <span class="tags mono"><span class="tag">Anglais</span><span class="tag">IA locale</span></span>
           <svg class="arrow" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 29L29 11M14 11H29V26" fill="none" stroke="currentColor" stroke-width="3"/></svg>
