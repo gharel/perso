@@ -149,8 +149,21 @@ a { color: inherit; text-decoration: none; }
 .lead .mono { color: var(--sub); padding-top: .4em; }
 
 /* Index */
-.index { list-style: none; margin: 0; padding: 0; border-bottom: 1.5px solid var(--fg); }
-.index li { border-top: 1.5px solid var(--fg); }
+.index { list-style: none; margin: 0; padding: 0; position: relative; }
+/* Filets séparateurs en pleine largeur, épaisseur entière : ils prolongent
+   le fond de survol sans créer de marche à ses bords. */
+.index li { position: relative; }
+.index li::after, .index::after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  height: 2px;
+  background: var(--fg);
+  pointer-events: none;
+}
+.index li::after { top: 0; }
+.index::after { bottom: 0; }
 .row {
   --c: var(--fg);
   display: grid;
@@ -166,7 +179,7 @@ a { color: inherit; text-decoration: none; }
 .row::before {
   content: "";
   position: absolute;
-  inset: -1.5px calc(50% - 50vw);
+  inset: 0 calc(50% - 50vw);
   z-index: -1;
   background: var(--fg);
   transform: scaleY(0);
