@@ -221,12 +221,25 @@ a { color: inherit; text-decoration: none; }
 g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
 .row:hover .wave, .row:focus-visible .wave { animation-play-state: running; }
 @keyframes wave { to { transform: translateX(-20px); } }
-.steam { opacity: 0; transform: translateY(4px); transition: opacity .3s, transform .3s; }
-.row:hover .steam, .row:focus-visible .steam { animation: steam 1.6s ease-in-out infinite; }
-.row:hover .steam:nth-of-type(2) { animation-delay: .4s; }
-@keyframes steam { 0% { opacity: 0; transform: translateY(5px); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(-7px); } }
-.glass { transform-box: view-box; transform-origin: 32px 52px; transition: transform .6s var(--ease); }
-.row:hover .glass { transform: rotate(-14deg); }
+/* Tea Time : la vapeur, visible au repos, monte en boucle au survol */
+.steam { transform-box: view-box; }
+.row:hover .steam, .row:focus-visible .steam { animation: steam 1.4s linear infinite; }
+.row:hover .steam:nth-of-type(2), .row:focus-visible .steam:nth-of-type(2) { animation-delay: -.7s; }
+@keyframes steam {
+  0% { opacity: 0; transform: translateY(7px); }
+  30%, 70% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-9px); }
+}
+/* Bacchus : « tchin-tchin », le verre se lève et oscille sur son pied */
+.glass { transform-box: view-box; transform-origin: 32px 52px; }
+.row:hover .glass, .row:focus-visible .glass { animation: tchin 1.6s var(--ease) infinite; }
+@keyframes tchin {
+  0%, 60%, 100% { transform: none; }
+  12% { transform: translateY(-4px) rotate(-10deg); }
+  24% { transform: translateY(-4px) rotate(8deg); }
+  36% { transform: translateY(-2px) rotate(-5deg); }
+  48% { transform: translateY(-1px) rotate(2deg); }
+}
 
 /* Footer */
 .foot {
