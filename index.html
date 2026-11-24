@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projets perso · Guillaume Harel</title>
-<meta name="description" content="Les projets perso de Guillaume Harel : petits outils web faits maison, gratuits et sans compte.">
+<meta name="description" content="Les projets perso de Guillaume Harel : petits outils web gratuits et sans compte.">
 <meta name="color-scheme" content="light dark">
 <!-- La page a son propre thème sombre : on bloque les « modes nuit » forcés
      (Dark Reader, mode nuit de Brave iOS…) qui le dénaturent. -->
@@ -14,7 +14,7 @@
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="Projets perso · Guillaume Harel">
-<meta property="og:description" content="Petits outils web faits maison : Piscine, Tea Time, Bacchus.">
+<meta property="og:description" content="Petits outils web gratuits : Piscine, Tea Time, Bacchus.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,8 +227,6 @@ g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
 @keyframes steam { 0% { opacity: 0; transform: translateY(5px); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(-7px); } }
 .glass { transform-box: view-box; transform-origin: 32px 52px; transition: transform .6s var(--ease); }
 .row:hover .glass { transform: rotate(-14deg); }
-.olive { transition: transform .6s var(--ease); }
-.row:hover .olive { transform: translate(-3px, -5px); }
 
 /* Footer */
 .foot {
@@ -285,7 +283,7 @@ g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
     <section class="hero">
       <h1 class="title reveal" style="--i:1">Projets<br>perso<span class="dot" aria-hidden="true"></span><sup>(03)</sup></h1>
       <div class="lead reveal" style="--i:2">
-        <span class="mono">Fait main · 2026</span>
+        <span class="mono">2026</span>
         <p>Petits outils web pour le quotidien&nbsp;: entretenir sa piscine, progresser en anglais, estimer son alcoolémie. Gratuits, sans compte, ils tournent dans le navigateur.</p>
       </div>
     </section>
@@ -316,11 +314,11 @@ g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
           <span class="num mono">02</span>
           <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
             <rect width="64" height="64" rx="14" fill="var(--tea)"/>
-            <path class="steam" d="M22 13v8" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
-            <path class="steam" d="M30 11v10" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
-            <path d="M13 27H43A15 15 0 0 1 13 27Z" fill="#F2F0EA"/>
-            <circle cx="46.5" cy="32.5" r="5" fill="none" stroke="#F2F0EA" stroke-width="4"/>
-            <path d="M11 50H45" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
+            <path class="steam" d="M27 14v8" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
+            <path class="steam" d="M37 12v10" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
+            <path d="M17 30H47A15 15 0 0 1 17 30Z" fill="#F2F0EA"/>
+            <circle cx="50.5" cy="35" r="5" fill="none" stroke="#F2F0EA" stroke-width="4"/>
+            <path d="M14 52H50" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
           </svg>
           <span class="body">
             <span class="name">Tea Time</span>
@@ -334,11 +332,16 @@ g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
         <a class="row" href="https://gharel.github.io/bacchus/">
           <span class="num mono">03</span>
           <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
+            <defs><clipPath id="c-glass"><path d="M15 13H49L32 34Z"/></clipPath></defs>
             <rect width="64" height="64" rx="14" fill="var(--wine)"/>
             <g class="glass">
               <path d="M15 13H49L32 34Z" fill="#F2F0EA"/>
               <path d="M32 34V49M22 51H42" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
-              <circle class="olive" cx="41" cy="18" r="3.5" fill="var(--wine)"/>
+              <path d="M32 25L43.5 4.5" stroke="#F2F0EA" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M32 25L43.5 4.5" stroke="var(--wine)" stroke-width="2.4" clip-path="url(#c-glass)"/>
+              <circle cx="43.5" cy="4.5" r="2.2" fill="#F2F0EA"/>
+              <circle cx="32" cy="25" r="3.4" fill="var(--wine)"/>
+              <circle cx="30.5" cy="24.1" r="1.1" fill="#F2F0EA"/>
             </g>
           </svg>
           <span class="body">
