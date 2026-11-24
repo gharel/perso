@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projets perso · Guillaume Harel</title>
+<meta name="description" content="Les projets perso de Guillaume Harel : petits outils web faits maison, gratuits et sans compte.">
+<meta name="theme-color" content="#F2F0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="Projets perso · Guillaume Harel">
+<meta property="og:description" content="Petits outils web faits maison : Piscine, Tea Time, Bacchus.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F2F0EA;
+  --ink: #121212;
+  --muted: #5E5C57;
+  --lime: #C6F432;
+  --pool: #2F5BFF;
+  --tea: #FF6B2C;
+  --wine: #9E1B4F;
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --sub: var(--muted);
+  --grain-blend: multiply;
+  --grain-opacity: .10;
+  --on-fg-accent: var(--lime);
+  --dot-stroke: transparent;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 56px);
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--ink);
+    --fg: var(--paper);
+    --sub: #A9A69E;
+    --grain-blend: screen;
+    --grain-opacity: .06;
+    --on-fg-accent: var(--ink);
+    --dot-stroke: var(--ink);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: var(--ink);
+  --fg: var(--paper);
+  --sub: #A9A69E;
+  --grain-blend: screen;
+  --grain-opacity: .06;
+  --on-fg-accent: var(--ink);
+  --dot-stroke: var(--ink);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+.mono {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); }
+
+/* Header */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 28px;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.logo { width: 48px; height: 48px; display: block; }
+.logo .tile { fill: var(--fg); }
+.logo .letters { fill: var(--bg); }
+.logo .dot { fill: var(--lime); stroke: var(--dot-stroke); stroke-width: 1.5; transition: transform .5s var(--ease); }
+.brand:hover .logo .dot { transform: translateY(-4px); }
+.top-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 0; }
+.top-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Hero */
+.hero { padding-block: clamp(40px, 9vw, 120px) clamp(32px, 6vw, 72px); }
+.title {
+  margin: 0;
+  font-size: clamp(76px, 17vw, 232px);
+  line-height: .8;
+  letter-spacing: -.055em;
+  font-weight: 700;
+  font-variation-settings: "opsz" 96;
+}
+.title .dot {
+  color: var(--lime);
+  -webkit-text-stroke: max(2px, .012em) var(--fg);
+  paint-order: stroke fill;
+}
+.title sup {
+  font-family: var(--mono);
+  font-size: max(12px, .075em);
+  letter-spacing: .04em;
+  font-weight: 500;
+  vertical-align: top;
+  position: relative;
+  top: .5em;
+  margin-left: .2em;
+}
+.lead {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(0, 3fr);
+  gap: 24px;
+  margin-top: clamp(32px, 5vw, 64px);
+}
+.lead p {
+  margin: 0;
+  font-size: clamp(19px, 2.1vw, 28px);
+  line-height: 1.3;
+  letter-spacing: -.01em;
+  max-width: 34ch;
+}
+.lead .mono { color: var(--sub); padding-top: .4em; }
+
+/* Index */
+.index { list-style: none; margin: 0; padding: 0; border-bottom: 1.5px solid var(--fg); }
+.index li { border-top: 1.5px solid var(--fg); }
+.row {
+  --c: var(--fg);
+  display: grid;
+  grid-template-columns: 56px 96px minmax(0, 1fr) auto 48px;
+  grid-template-areas: "num glyph body tags arrow";
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 32px);
+  padding: clamp(18px, 2.6vw, 30px) clamp(8px, 1.4vw, 20px);
+  position: relative;
+  isolation: isolate;
+  transition: color .35s var(--ease);
+}
+.row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--fg);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .45s var(--ease);
+}
+.row:hover, .row:focus-visible { color: var(--bg); }
+.row:hover::before, .row:focus-visible::before { transform: scaleY(1); transform-origin: top; }
+.num { grid-area: num; align-self: start; padding-top: .9em; }
+.glyph { grid-area: glyph; width: 96px; height: 96px; display: block; transition: transform .5s var(--ease); }
+.row:hover .glyph { transform: rotate(-6deg) scale(1.04); }
+.body { grid-area: body; min-width: 0; }
+.name {
+  display: block;
+  font-size: clamp(40px, 6.4vw, 88px);
+  line-height: .92;
+  letter-spacing: -.045em;
+  font-weight: 700;
+  transition: transform .5s var(--ease);
+}
+.row:hover .name { transform: translateX(10px); }
+.desc {
+  display: block;
+  margin-top: 10px;
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.4;
+  color: var(--sub);
+  max-width: 46ch;
+  transition: color .35s var(--ease);
+}
+.row:hover .desc, .row:focus-visible .desc { color: inherit; opacity: .78; }
+.tags { grid-area: tags; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; max-width: 260px; }
+.tag { border: 1.5px solid currentColor; border-radius: 999px; padding: 4px 10px 3px; white-space: nowrap; }
+.arrow { grid-area: arrow; width: 40px; height: 40px; justify-self: end; transition: transform .45s var(--ease), color .35s; }
+.row:hover .arrow, .row:focus-visible .arrow { transform: translate(4px, -4px); color: var(--on-fg-accent); }
+
+/* Glyph micro-animations */
+.wave { animation: wave 2.4s linear infinite; animation-play-state: paused; }
+g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
+.row:hover .wave, .row:focus-visible .wave { animation-play-state: running; }
+@keyframes wave { to { transform: translateX(-20px); } }
+.steam { opacity: 0; transform: translateY(4px); transition: opacity .3s, transform .3s; }
+.row:hover .steam, .row:focus-visible .steam { animation: steam 1.6s ease-in-out infinite; }
+.row:hover .steam:nth-of-type(2) { animation-delay: .4s; }
+@keyframes steam { 0% { opacity: 0; transform: translateY(5px); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(-7px); } }
+.glass { transform-box: view-box; transform-origin: 32px 52px; transition: transform .6s var(--ease); }
+.row:hover .glass { transform: rotate(-14deg); }
+.olive { transition: transform .6s var(--ease); }
+.row:hover .olive { transform: translate(-3px, -5px); }
+
+/* Footer */
+.foot {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-block: 28px 40px;
+  color: var(--sub);
+}
+.foot a:hover { color: var(--fg); text-decoration: underline; text-underline-offset: 4px; }
+
+/* Entrance */
+.reveal { animation: up .9s var(--ease) both; animation-delay: calc(var(--i, 0) * 90ms + 80ms); }
+@keyframes up { from { opacity: 0; transform: translateY(24px); } }
+
+@media (max-width: 860px) {
+  .row {
+    grid-template-columns: 72px minmax(0, 1fr) 32px;
+    grid-template-areas:
+      "glyph num arrow"
+      "glyph body arrow"
+      "glyph tags arrow";
+    align-items: start;
+    row-gap: 6px;
+  }
+  .num { padding-top: 0; }
+  .glyph { width: 72px; height: 72px; }
+  .tags { justify-content: flex-start; margin-top: 8px; max-width: none; }
+  .arrow { width: 28px; height: 28px; align-self: center; }
+  .lead { grid-template-columns: 1fr; gap: 12px; }
+  .row:hover .name { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top reveal">
+    <a class="brand" href="./" aria-label="gh. Guillaume Harel, accueil">
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+        <rect class="tile" width="100" height="100" rx="24"/>
+        <path class="letters" d="M29.88 55.24Q25.46 55.24 22.6 54.51Q19.74 53.78 18.37 52.3Q17 50.82 17 48.58Q17 46.5 18.34 44.96Q19.68 43.42 22.52 42.55Q25.37 41.68 29.88 41.68Q30.78 41.68 31.71 41.68Q32.65 41.68 33.55 41.68H45.43V45.6Q43.41 45.69 41.34 45.4Q39.27 45.1 37.53 44.6L37.19 44.14Q38.59 44.57 39.85 45.26Q41.11 45.94 41.89 46.9Q42.66 47.87 42.66 49.21Q42.66 51.14 41.34 52.49Q40.02 53.84 37.21 54.54Q34.39 55.24 29.88 55.24ZM36.51 64.08V63.24Q36.51 62.3 35.68 62.13Q34.86 61.96 33.08 61.96H24.4Q22.2 61.96 20.84 61.65Q19.49 61.34 18.79 60.81Q18.09 60.28 17.86 59.64Q17.62 59.01 17.62 58.38Q17.62 57.05 18.62 56.28Q19.61 55.52 21.67 55.21Q23.72 54.9 26.89 54.9L29.88 55.24Q27.27 55.24 26.24 55.51Q25.21 55.77 25.21 56.55Q25.21 56.98 25.62 57.19Q26.02 57.39 26.71 57.39H35.88Q38.96 57.39 40.74 57.84Q42.51 58.29 43.24 59.36Q43.97 60.44 43.97 62.3V64.08ZM29.88 51.17Q31.93 51.17 33.19 50.84Q34.45 50.51 35.01 49.95Q35.57 49.39 35.57 48.71Q35.57 47.93 35.01 47.37Q34.45 46.81 33.21 46.5Q31.96 46.19 29.88 46.19Q27.83 46.19 26.55 46.5Q25.27 46.81 24.68 47.37Q24.09 47.93 24.09 48.71Q24.09 49.39 24.67 49.95Q25.24 50.51 26.52 50.84Q27.79 51.17 29.88 51.17ZM67.3 57.39V51.73Q67.3 50.33 66.74 49.36Q66.18 48.4 64.77 47.92Q63.35 47.43 60.77 47.43Q59.31 47.43 57.92 47.7Q56.54 47.96 55.43 48.34Q54.33 48.71 53.68 49.08L53.61 47.59Q53.74 47.12 54.47 46.17Q55.2 45.22 56.6 44.18Q58 43.14 60.13 42.41Q62.26 41.68 65.19 41.68Q67.02 41.68 68.73 42.02Q70.44 42.36 71.8 43.16Q73.15 43.95 73.96 45.29Q74.77 46.62 74.77 48.62V57.39ZM46.52 57.39V35.92H53.99V57.39Z"/>
+        <circle class="dot" cx="79.65" cy="54.03" r="3.35"/>
+      </svg>
+      <span class="mono">Guillaume Harel</span>
+    </a>
+    <a class="top-link mono" href="https://github.com/gharel">GitHub ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="title reveal" style="--i:1">Projets<br>perso<span class="dot">.</span><sup>(03)</sup></h1>
+      <div class="lead reveal" style="--i:2">
+        <span class="mono">Fait main · 2026</span>
+        <p>Petits outils web pour le quotidien&nbsp;: entretenir sa piscine, progresser en anglais, estimer son alcoolémie. Gratuits, sans compte, ils tournent dans le navigateur.</p>
+      </div>
+    </section>
+
+    <ol class="index">
+      <li class="reveal" style="--i:3">
+        <a class="row" href="https://gharel.github.io/piscine/">
+          <span class="num mono">01</span>
+          <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
+            <defs><clipPath id="c-pool"><rect width="64" height="64" rx="14"/></clipPath></defs>
+            <rect width="64" height="64" rx="14" fill="var(--pool)"/>
+            <g clip-path="url(#c-pool)" fill="none" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round">
+              <g><path class="wave" d="M-20 24q5-6 10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0"/></g>
+              <g><path class="wave" d="M-20 34q5-6 10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0"/></g>
+              <g><path class="wave" d="M-20 44q5-6 10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0"/></g>
+            </g>
+          </svg>
+          <span class="body">
+            <span class="name">Piscine</span>
+            <span class="desc">Calculer les doses d’une piscine au sel&nbsp;: pH, TAC, chlore, sel, stabilisant et anti-phosphates.</span>
+          </span>
+          <span class="tags mono"><span class="tag">Calculateur</span><span class="tag">Hors ligne</span></span>
+          <svg class="arrow" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 29L29 11M14 11H29V26" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+        </a>
+      </li>
+      <li class="reveal" style="--i:4">
+        <a class="row" href="https://gharel.github.io/teatime/">
+          <span class="num mono">02</span>
+          <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="var(--tea)"/>
+            <path class="steam" d="M22 13v8" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
+            <path class="steam" d="M30 11v10" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
+            <path d="M13 27H43A15 15 0 0 1 13 27Z" fill="#F2F0EA"/>
+            <circle cx="46.5" cy="32.5" r="5" fill="none" stroke="#F2F0EA" stroke-width="4"/>
+            <path d="M11 50H45" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span class="body">
+            <span class="name">Tea Time</span>
+            <span class="desc">Apprendre l’anglais quand on est francophone&nbsp;: test de niveau, exercices, mini-jeux et Emma, prof vocale IA 100&nbsp;% locale.</span>
+          </span>
+          <span class="tags mono"><span class="tag">Anglais</span><span class="tag">IA locale</span></span>
+          <svg class="arrow" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 29L29 11M14 11H29V26" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+        </a>
+      </li>
+      <li class="reveal" style="--i:5">
+        <a class="row" href="https://gharel.github.io/bacchus/">
+          <span class="num mono">03</span>
+          <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="var(--wine)"/>
+            <g class="glass">
+              <path d="M15 13H49L32 34Z" fill="#F2F0EA"/>
+              <path d="M32 34V49M22 51H42" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
+              <circle class="olive" cx="41" cy="18" r="3.5" fill="var(--wine)"/>
+            </g>
+          </svg>
+          <span class="body">
+            <span class="name">Bacchus</span>
+            <span class="desc">Estimer son taux d’alcoolémie à partir de ses consommations, avec la formule de Widmark.</span>
+          </span>
+          <span class="tags mono"><span class="tag">Calculateur</span><span class="tag">Santé</span></span>
+          <svg class="arrow" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 29L29 11M14 11H29V26" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+        </a>
+      </li>
+    </ol>
+  </main>
+
+  <footer class="foot mono">
+    <span>© 2026 Guillaume Harel</span>
+    <a href="https://github.com/gharel">github.com/gharel ↗</a>
+  </footer>
+</div>
+</body>
+</html>
