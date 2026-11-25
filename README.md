@@ -20,4 +20,4 @@ Page d'index de mes projets perso : petits outils web gratuits et sans compte.
 
 Copier un bloc `<li>` de la liste `.index` dans `index.html`, changer le lien, le numéro, le glyphe SVG, le nom, la description et les tags, puis mettre à jour le compteur `(03)` du titre.
 
-Chaque push sur `main` met la page à jour sur GitHub Pages.
+Chaque push sur `main` met la page à jour sur GitHub Pages, par le workflow `.github/workflows/publier.yml`. Il ne publie que `index.html`, `logo.svg` et `apple-touch-icon.png` (pas ce README) : un nouveau fichier du site s'ajoute à sa liste.
