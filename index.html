@@ -14,7 +14,7 @@
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="Projets perso · Guillaume Harel">
-<meta property="og:description" content="Petits outils web gratuits : Piscine, Tea Time, Bacchus, Lanterne des Marées, Hometastic, Fournée.">
+<meta property="og:description" content="Petits outils web gratuits : Piscine, Tea Time, Bacchus, Hometastic, Fournée.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,6 @@
   --pool: #2F5BFF;
   --tea: #FF6B2C;
   --wine: #9E1B4F;
-  --lantern: #3A2E8C;
   --home: #22416A;
   --fournee: #B4532A;
   --bg: var(--paper);
@@ -243,10 +242,6 @@ g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
   36% { transform: translateY(-2px) rotate(-5deg); }
   48% { transform: translateY(-1px) rotate(2deg); }
 }
-/* Lanterne des Marées : le faisceau du phare balaie d’un côté puis de l’autre */
-.row:hover .beam, .row:focus-visible .beam { animation: beam 1.6s linear infinite; }
-.row:hover .beam-d, .row:focus-visible .beam-d { animation-delay: -.8s; }
-@keyframes beam { 0%, 100% { opacity: .2; } 50% { opacity: 1; } }
 /* Hometastic : l’étoile scintille au-dessus de la maison */
 .star { transform-box: fill-box; transform-origin: center; }
 .row:hover .star, .row:focus-visible .star { animation: star 1.2s var(--ease) infinite; }
@@ -314,10 +309,10 @@ g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
 
   <main>
     <section class="hero">
-      <h1 class="title reveal" style="--i:1">Projets<br>perso<span class="dot" aria-hidden="true"></span><sup>(06)</sup></h1>
+      <h1 class="title reveal" style="--i:1">Projets<br>perso<span class="dot" aria-hidden="true"></span><sup>(05)</sup></h1>
       <div class="lead reveal" style="--i:2">
         <span class="mono">2026</span>
-        <p>Petits outils web pour le quotidien&nbsp;: entretenir sa piscine, progresser en anglais, estimer son alcoolémie, tenir le foyer, cuisiner la semaine d’avance, et un jeu pour souffler. Gratuits, sans compte, ils tournent dans le navigateur.</p>
+        <p>Petits outils web pour le quotidien&nbsp;: entretenir sa piscine, progresser en anglais, estimer son alcoolémie, tenir le foyer et cuisiner la semaine d’avance. Gratuits, sans compte, ils tournent dans le navigateur.</p>
       </div>
     </section>
 
@@ -384,29 +379,8 @@ g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
         </a>
       </li>
       <li class="reveal" style="--i:6">
-        <a class="row" href="https://gharel.github.io/lanterne/">
-          <span class="num mono">04</span>
-          <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-            <rect width="64" height="64" rx="14" fill="var(--lantern)"/>
-            <path class="beam beam-g" d="M24 22L6 15V29Z" fill="#F2F0EA"/>
-            <path class="beam beam-d" d="M40 22L58 15V29Z" fill="#F2F0EA"/>
-            <path d="M25 17L32 10L39 17Z" fill="#F2F0EA"/>
-            <rect x="27" y="19" width="10" height="6" fill="#F2F0EA"/>
-            <path d="M27 27H37L39 50H25Z" fill="#F2F0EA"/>
-            <path d="M26.2 35H37.8L38.2 40H25.8Z" fill="var(--lantern)"/>
-            <path d="M12 51H52" stroke="#F2F0EA" stroke-width="4" stroke-linecap="round"/>
-          </svg>
-          <span class="body">
-            <span class="name">Lanterne des Marées</span>
-            <span class="desc">RPG solo en pixel art&nbsp;: explorer un archipel qui change à chaque expédition, combattre à jauges d’action et rallumer le Grand Phare, en parties de 10 à 20 minutes.</span>
-          </span>
-          <span class="tags mono"><span class="tag">Jeu</span><span class="tag">Pixel art</span></span>
-          <svg class="arrow" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 29L29 11M14 11H29V26" fill="none" stroke="currentColor" stroke-width="3"/></svg>
-        </a>
-      </li>
-      <li class="reveal" style="--i:7">
         <a class="row" href="https://gharel.github.io/hometastic/">
-          <span class="num mono">05</span>
+          <span class="num mono">04</span>
           <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
             <rect width="64" height="64" rx="14" fill="var(--home)"/>
             <path d="M12 33L30 18L48 33V48a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3Z" fill="#F2F0EA"/>
@@ -422,9 +396,9 @@ g:nth-child(2) > .wave { animation-duration: 3s; animation-direction: reverse; }
           <svg class="arrow" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 29L29 11M14 11H29V26" fill="none" stroke="currentColor" stroke-width="3"/></svg>
         </a>
       </li>
-      <li class="reveal" style="--i:8">
+      <li class="reveal" style="--i:7">
         <a class="row" href="https://gharel.github.io/cooking/">
-          <span class="num mono">06</span>
+          <span class="num mono">05</span>
           <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
             <rect width="64" height="64" rx="14" fill="var(--fournee)"/>
             <g class="lid">

@@ -9,9 +9,8 @@ Page d'index de mes projets perso : petits outils web gratuits et sans compte.
 | 01 | Piscine | Calculer les doses d'une piscine au sel | https://gharel.github.io/piscine/ |
 | 02 | Tea Time | Apprendre l'anglais avec une prof vocale IA locale | https://gharel.github.io/teatime/ |
 | 03 | Bacchus | Estimer son taux d'alcoolémie (formule de Widmark) | https://gharel.github.io/bacchus/ |
-| 04 | Lanterne des Marées | RPG solo en pixel art, en parties de 10 à 20 minutes | https://gharel.github.io/lanterne/ |
-| 05 | Hometastic | Application du foyer : courses, tâches, maison, voitures, papiers | https://gharel.github.io/hometastic/ |
-| 06 | Fournée | Batch cooking : plats de la semaine, courses, session de cuisine guidée, frigo | https://gharel.github.io/cooking/ |
+| 04 | Hometastic | Application du foyer : courses, tâches, maison, voitures, papiers | https://gharel.github.io/hometastic/ |
+| 05 | Fournée | Batch cooking : plats de la semaine, courses, session de cuisine guidée, frigo | https://gharel.github.io/cooking/ |
 
 ## Fichiers
 
