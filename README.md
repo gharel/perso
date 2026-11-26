@@ -6,11 +6,11 @@ Page d'index de mes projets perso : petits outils web gratuits et sans compte.
 
 | # | Projet | Pour quoi faire | Adresse |
 |---|---|---|---|
-| 01 | Piscine | Calculer les doses d'une piscine au sel | https://gharel.github.io/piscine/ |
-| 02 | Tea Time | Apprendre l'anglais avec une prof vocale IA locale | https://gharel.github.io/teatime/ |
-| 03 | Bacchus | Estimer son taux d'alcoolémie (formule de Widmark) | https://gharel.github.io/bacchus/ |
-| 04 | Hometastic | Application du foyer : courses, tâches, maison, voitures, papiers | https://gharel.github.io/hometastic/ |
-| 05 | Fournée | Batch cooking : plats de la semaine, courses, session de cuisine guidée, frigo | https://gharel.github.io/cooking/ |
+| 01 | Hometastic | Application du foyer : courses, tâches, maison, voitures, papiers | https://gharel.github.io/hometastic/ |
+| 02 | Fournée | Batch cooking : plats de la semaine, courses, session de cuisine guidée, frigo | https://gharel.github.io/cooking/ |
+| 03 | Tea Time | Apprendre l'anglais avec une prof vocale IA locale | https://gharel.github.io/teatime/ |
+| 04 | Piscine | Calculer les doses d'une piscine au sel | https://gharel.github.io/piscine/ |
+| 05 | Bacchus | Estimer son taux d'alcoolémie (formule de Widmark) | https://gharel.github.io/bacchus/ |
 
 ## Fichiers
 
